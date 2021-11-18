@@ -1,0 +1,22 @@
+<div class="container">
+  <hr>
+  <h4 class="text-center">How bout' that freak'n Weatha?</h4>
+  <hr>
+  <div class="form-row d-flex justify-content-center">
+
+    <div class="col-sm-10">
+      <%= form_with(url: root_path, method: :get, class: 'form-horizontal', id: 'location-form', data: { controller: 'places', action: 'google-maps-callback@window->places#initMap' }) do |f| %>
+        <div class="input-group input-group-lg mx-auto">
+          <div class="col-sm-8 mx-auto">
+            <%= f.search_field :address, class: 'form-control', data: { target: 'places.field' } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+    <% if @results.present? %>
+      <%= render 'forecast' %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="row flex-row card-spacing">
+  <h1 class="text-center mb-5"><%= @results['location']['name'] %>, <%= @results['location']['region'] %></h1>
+
+  <h2 class="text-center mb-4">FORECAST FOR THE REST OF THE WEEK</h2>
+
+  <% @results['forecast']['forecastday'].each do |day| %>
+    <div class="col">
+      <div class="card card-block text-center">
+        <b class="mb-3"><%= wk_day(day['date']) %></b>
+        <p>Low: <%= day['day']['mintemp_f'].to_i %> &deg; / High: <%= day['day']['maxtemp_f'].to_i %> &deg;</p>
+        <p>
+          Condition: <%= day['day']['condition']['text'] %>
+          <span><%= image_tag day['day']['condition']['icon'] %></span>
+        </p>
+      </div>
+    </div>
+  <% end %>
+
+  <% if is_cached? %>
+    <small class="text-center mt-5"><i>Results viewed are rendering from cache.</i></small>
+  <% end %>
+</div>
