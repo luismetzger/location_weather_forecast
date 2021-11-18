@@ -53,7 +53,6 @@ Submission:
   * `bundle install`
   * `rails db:setup`
   * `rails db:create db:migrate RAILS_ENV=test`
-  * Add keys to `/config` directory: 
+  * Add master key to `/config` directory: 
     * `master.key` in the `/config` directory.
-    * `test.key` in the `/config/environments` directory.
 
